@@ -10,10 +10,10 @@ RSpec.feature "UrlViews", type: :feature do
     fill_in "original_url", with: "https://example.com"
 
     # Click the "Shorten" button
-    click_button "Shorten"
+    click_button I18n.t('url_shortener.form.button')
 
     # Expect the page to display the shortened URL
-    expect(page).to have_content("Shortened URL")
+    expect(page).to have_content(I18n.t('url_shortener.flash.shortened'))
   end
 
   scenario "user visits a shortened URL" do

@@ -20,11 +20,11 @@ RSpec.feature "AdminDashboard", type: :feature do
     visit "/admin"
 
     # Expect the page to display the dashboard
-    expect(page).to have_content("Admin Dashboard")
+    expect(page).to have_content(I18n.t('admin_dashboard.title'))
     expect(page).to have_selector("table")
-    expect(page).to have_content("Short URL")
-    expect(page).to have_content("Original URL")
-    expect(page).to have_content("Click Count")
+    expect(page).to have_content(I18n.t('admin_dashboard.short_url'))
+    expect(page).to have_content(I18n.t('admin_dashboard.original_url'))
+    expect(page).to have_content(I18n.t('admin_dashboard.click_count'))
     expect(page).to have_content("abcd1234")
     expect(page).to have_content("https://example.com")
     expect(page).to have_content("5")

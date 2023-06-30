@@ -30,4 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  admin_dashboard:
+    title: "Admin Dashboard"
+    short_url: "Short URL"
+    original_url: "Original URL"
+    click_count: "Click Count"
+  url_shortener:
+    title: 'URL Shortener'
+    form:
+      label: 'Enter URL to shorten:'
+      button: 'Shorten'
+    flash:
+      shortened: 'Shortened URL:'
