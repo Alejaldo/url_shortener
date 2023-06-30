@@ -21,6 +21,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails', "~> 6.2"
   gem 'shoulda-matchers', "~> 5.3"
+  gem 'capybara', '~> 2.7'
 end
 
 group :development do

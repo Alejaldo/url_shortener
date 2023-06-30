@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Shortener</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="text-center mb-4">
+          <h1>URL Shortener</h1>
+        </div>
+        
+        <!-- Form to shorten URLs -->
+        <%= form_with(url: "/shorten", method: "post", local: true, class: "input-group mb-3") do %>
+          <div class="input-group-prepend">
+            <span class="input-group-text">Enter URL to shorten:</span>
+          </div>
+          <%= text_field_tag :original_url, nil, class: 'form-control' %>
+          <div class="input-group-append">
+            <%= submit_tag "Shorten", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+        
+        <!-- Display the shortened URL -->
+        <% if flash[:short_url] %>
+          <div class="alert alert-success" role="alert">
+            Shortened URL: <%= link_to flash[:short_url], "/#{flash[:short_url]}", target: "_blank" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
