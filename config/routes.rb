@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post 'urls', to: 'urls#create' 
+  get 'urls/:short_url', to: 'urls#show' 
+  get 'urls/:short_url/stats', to: 'urls#stats'
 end
