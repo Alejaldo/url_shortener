@@ -1,0 +1,22 @@
+<div class="container my-5">
+  <h1 class="mb-4">Admin Dashboard</h1>
+
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Short URL</th>
+        <th scope="col">Original URL</th>
+        <th scope="col">Click Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @urls.each do |url| %>
+        <tr>
+          <td><%= url.short_url %></td>
+          <td><%= url.original_url %></td>
+          <td><%= url.click_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
