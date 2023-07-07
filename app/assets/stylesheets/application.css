@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ .custom-error {
+  color: red;
+  font-weight: bold;
+}

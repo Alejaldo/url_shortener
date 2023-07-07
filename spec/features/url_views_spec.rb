@@ -30,4 +30,18 @@ RSpec.feature "UrlViews", type: :feature do
     # Expect the browser to be redirected to the original URL
     expect(actual_url).to eq(expected_url)
   end
+
+  scenario "user tries to shorten an invalid URL" do
+    # Visit the root path (UrlViewsController index action)
+    visit root_path
+
+    # Fill in the form with an invalid URL
+    fill_in "original_url", with: "not_a_valid_url"
+
+    # Click the "Shorten" button
+    click_button "Shorten"
+
+    # Expect the page to display an error message
+    expect(page).to have_content("must be a valid URL")
+  end
 end

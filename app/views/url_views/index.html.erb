@@ -10,9 +10,20 @@
         <div class="text-center mb-4">
           <h1><%= t('url_shortener.title') %></h1>
         </div>
-        
+
+        <!-- Display error messages -->
+        <% if @url.errors.any? %>
+          <div id="error_explanation" class="custom-error">
+            <ul>
+              <% @url.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <!-- Form to shorten URLs -->
-        <%= form_with(url: "/shorten", method: "post", local: true, class: "input-group mb-3") do %>
+        <%= form_with(model: @url, url: "/shorten", method: "post", local: true, class: "input-group mb-3", data: { turbo: "false" }) do %>
           <div class="input-group-prepend">
             <span class="input-group-text"><%= t('url_shortener.form.label') %></span>
           </div>
@@ -21,7 +32,7 @@
             <%= submit_tag t('url_shortener.form.button'), class: 'btn btn-primary' %>
           </div>
         <% end %>
-        
+
         <!-- Display the shortened URL -->
         <% if flash[:short_url] %>
           <div class="alert alert-success" role="alert">
@@ -33,3 +44,4 @@
   </div>
 </body>
 </html>
+
